@@ -4,16 +4,16 @@ gulp-demo
 The streaming build system - gulp.js - Demo
 
 
-$ cd [your dir]
-$ npm install
+$ cd [your dir]  
+$ npm install  
 
 ...
 
-$ gulp
+$ gulp  
 
-or
+or  
 
-$ gulp watch
+$ gulp watch  
 
 
 ---
