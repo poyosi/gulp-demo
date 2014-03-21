@@ -21,13 +21,13 @@ minifycss    = require 'gulp-minify-css'
 paths =
     templates:
         src:  'src/**/*.jade'
-        dest: './'
+        dest: 'dest/'
     scripts:
-        src:  'src/coffee/*.coffee'
-        dest: 'js/'
+        src:  'src/assets/coffee/*.coffee'
+        dest: 'dest/assets/scripts/'
     styles:
-        src:  'src/sass/*.scss'
-        dest: 'css/'
+        src:  'src/assets/sass/*.scss'
+        dest: 'dest/assets/css/'
 
 # Templates
 gulp.task 'templates', ->
@@ -84,6 +84,6 @@ gulp.task 'default', ['templates','scripts', 'styles', 'watch']
 
 # Watch
 gulp.task 'watch', ->
-    #gulp.watch 'client/**/*.jade', [templates]
+    gulp.watch paths.templates.src, ['templates']
     gulp.watch paths.styles.src, ['styles']
     gulp.watch paths.scripts.src, ['scripts']
