@@ -2,6 +2,7 @@ gulp         = require 'gulp'
 gutil        = require 'gulp-util'
 notify       = require 'gulp-notify'
 rename       = require 'gulp-rename'
+clean        = require 'gulp-clean'
 
 # templates
 jade         = require 'gulp-jade'
@@ -19,6 +20,8 @@ minifycss    = require 'gulp-minify-css'
 
 # Source and dest paths
 paths =
+	dest:
+        'dest/'
     templates:
         src:  'src/**/*.jade'
         dest: 'dest/'
@@ -78,6 +81,13 @@ gulp.task 'copy', ->
     gulp.src 'client/*.html'
     .pipe gulp.dest 'build'
 ###
+
+
+# Clean
+gulp.task 'clean', ->
+	gulp.src paths.dest, {read: false}
+	.pipe clean({force: true})
+	.pipe notify({message: 'Clean task complete!!'})
 
 # Default（引数無しで、'gulp'と実行した際に呼び出されるタスク）の定義
 gulp.task 'default', ['templates','scripts', 'styles', 'watch']
